@@ -5,10 +5,11 @@
 Is an enum defined in a header file considered as instrumented in lcov calculation?
 
 ### Run the example
+(C++14)
 
 Ran using ``lcov 1.15``, `g++- 8.4.0`, and the `.lcovrc` commited here.
 
-Running ``generate_report.sh`` will do the following:
+Running ``generate_report.sh``, will do the following:
 
 ````
 g++-8 -c foo.cpp -fprofile-arcs -ftest-coverage --std=c++14 -o foo.compiled
@@ -22,11 +23,11 @@ lcov --add-tracefile baseline.info --add-tracefile after_test.info --output-file
 genhtml --ignore-errors source final_lcov.info --legend --title "check if enum appears" --output-directory=genhtml_output
 ````
 
-After executing this we can see that no `foo.h` is present in the html report.
+After executing this, we can see that **no** `foo.h` is present in the html report.
 
 ![report](./enum_report_screen.png)
 
-To cleanup the report, and the intermediate representations generated one can use ``cleanup.sh``.
+To cleanup the report, and the intermediate representations generated, one can use ``cleanup.sh``.
 
 ### References
 
